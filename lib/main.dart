@@ -1,43 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:android_exa2/pagina_inicial.dart';
+import 'package:android_exa2/animated_icon.dart';
+import 'package:android_exa2/appbar.dart';
+import 'package:android_exa2/choice_chip.dart';
+import 'package:android_exa2/clipoval.dart';
+import 'package:android_exa2/data_table.dart';
+import 'package:android_exa2/flexible.dart';
+import 'package:android_exa2/pageview.dart';
+import 'package:android_exa2/pageroute_builder.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(MisRutas());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
+class MisRutas extends StatelessWidget {
+  const MisRutas({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        // useMaterial3: false,
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      title: 'Named Routes Demo',
+      initialRoute: '/pantalla1', // Cambiamos el initial route
+      routes: {
+        '/pantalla1': (context) => const PantallaUno(),
+        '/animated_icon': (context) => const MyAnimatedIcon(),
+        '/appbar': (context) => const MyAppBar(),
+        '/choice_chip': (context) => const MyChoiceChip(),
+        '/clipoval': (context) => const MyClipOval(),
+        '/data_table': (context) => const MyDataTable(),
+        '/flexible': (context) => const MyFlexible(),
+        '/pageview': (context) => MyPageView(),
+        '/pageroute_builder': (context) => MyPageRouteBuilder(),
+      },
     );
   }
 }
